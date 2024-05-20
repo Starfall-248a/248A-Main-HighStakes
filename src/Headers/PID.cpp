@@ -1,7 +1,5 @@
 #include "lemlib/api.hpp"
 
-#pragma once
-
 // lateral PID controller
 lemlib::ControllerSettings lateral_controller(10, // proportional gain (kP)
                                               0, // integral gain (kI)
