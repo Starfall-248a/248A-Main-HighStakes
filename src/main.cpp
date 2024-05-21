@@ -18,7 +18,6 @@ rd::Console console;
 void initialize() {
 	console.println("Initializing robot...");
 	chassis.calibrate(); // calibrate sensors
-
 }
 
 /**
