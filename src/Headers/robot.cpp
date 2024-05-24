@@ -1,4 +1,6 @@
 #include "main.h"
+#include "pros/adi.h"
+#include "pros/adi.hpp"
 
 using namespace pros;
 using namespace lemlib;
@@ -10,6 +12,8 @@ Imu imu(10);
 
 Rotation latRot(7);
 Rotation angRot(8);
+
+adi::DigitalOut PTO(1, LOW);
 
 // drivetrain settings
 Drivetrain drivetrain(&driveLeft, // left motor group
