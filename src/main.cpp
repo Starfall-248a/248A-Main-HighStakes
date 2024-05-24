@@ -6,11 +6,7 @@ rd::Selector selector({
    {"Solo WP", &soloWP},
    {"Half WP", &halfWP},
    {"Skills", &skills},
-   {"test", &test},
-   {"test1", &test1}
 });
-
-lv_color_t color_primary = lv_color_hex(0xFFB6C1);
 
 rd::Console console;
 
