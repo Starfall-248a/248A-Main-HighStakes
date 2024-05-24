@@ -11,3 +11,11 @@ void halfWP(){
 void skills(){
     chassis.moveToPoint(10, 10, 1000);
 }
+
+void test(){
+
+}
+
+void test1(){
+    
+}
