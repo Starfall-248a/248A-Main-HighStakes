@@ -37,7 +37,7 @@ void opcontrol() {
 
         // move the robot
         // prioritize steering slightly
-        chassis.arcade(leftY, rightX, true, 0.35);
+        chassis.arcade(leftY, rightX, false, 0.35);
 
 		setIntake();
 		setHang();
