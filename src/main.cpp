@@ -1,5 +1,4 @@
 #include "main.h"
-#include "liblvgl/misc/lv_color.h"
 #include "robodash/api.h"
 
 rd::Selector selector({
@@ -12,7 +11,7 @@ rd::Console console;
 
 void initialize() {
 	console.println("Initializing robot...");
-	// chassis.calibrate(); // calibrate sensors
+	chassis.calibrate(); // calibrate sensors
 }
 
 void disabled() {
@@ -30,10 +29,19 @@ void autonomous() {
 
 void opcontrol() {
 	console.clear();
-	
-	console.println("Drive you bozo");
+	console.println("Driving...");
 	while (true) {
-		
+		// get left y and right x positions
+        int leftY = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+        int rightX = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
+
+        // move the robot
+        // prioritize steering slightly
+        chassis.arcade(leftY, rightX, true, 0.35);
+
+		setIntake();
+		setHang();
+
 		pros::delay(10);          // Run for 10 ms then update
 	}
 }
