@@ -4,14 +4,19 @@
 #include "pros/adi.hpp"
 #include "pros/misc.h"
 #include "pros/motors.h"
+#include "pros/motors.hpp"
 
 using namespace pros;
 using namespace lemlib;
 
 Controller controller(E_CONTROLLER_MASTER);
 
-MotorGroup driveLeft({-13, -12, -11}, pros::MotorGearset::blue); // left motors on ports 1, 2, 3
-MotorGroup driveRight({20, 19, 18}, pros::MotorGearset::blue); // right motors on ports 4, 5, 6
+MotorGroup driveLeft({-13, -12, -11}, pros::MotorGearset::blue); // left motors on ports 13, 12, 11
+MotorGroup driveRight({20, 19, 18}, pros::MotorGearset::blue); // right motors on ports 20, 19, 18
+MotorGroup Lift({});
+
+Motor liftLeft(-11);
+Motor liftRight(18);
 
 MotorGroup Intake({14, -17}, pros::MotorGearset::blue);
 
@@ -20,7 +25,8 @@ Imu imu(1);
 Rotation latRot(7);
 Rotation angRot(8);
 
-adi::DigitalOut Hang(5, LOW);
+adi::DigitalOut Hang(6, LOW);
+adi::DigitalOut PTO(1, LOW);
 
 // drivetrain settings
 Drivetrain drivetrain(&driveLeft, // left motor group

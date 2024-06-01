@@ -1,4 +1,5 @@
 #include "main.h"
+#include "lemlib/pose.hpp"
 #include "robodash/api.h"
 
 rd::Selector selector({
@@ -37,7 +38,7 @@ void opcontrol() {
 
         // move the robot
         // prioritize steering slightly
-        chassis.arcade(leftY, rightX, false, 0.35);
+        chassis.arcade(leftY, rightX, false, 0.75);
 
 		setIntake();
 		setHang();

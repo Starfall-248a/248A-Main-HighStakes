@@ -325,7 +325,8 @@
     },
     "upload_options": {
       "description": "Dingus mcgee",
-      "after": "none"
+      "after": "none",
+      "slot": 2
     },
     "use_early_access": false
   }
