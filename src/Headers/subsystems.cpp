@@ -4,7 +4,7 @@
 bool hangToggle = false;
 bool togglePTO = false;
 
-void setIntake(){
+void setIntake(){ //delete later
     if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
 		Intake.move_velocity(600);
 	}
@@ -16,7 +16,18 @@ void setIntake(){
 	}
 }
 
-void setHang(){
+void setIntakes(){
+	if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
+		intakeTop.move_velocity(600);
+		intakeBottom.move_velocity(600);
+	}
+	else if(controller.get_digital(E_CONTROLLER_DIGITAL_L1) and distance.get_distance() < 10){
+		intakeBottom.move_velocity(600);
+		intakeTop.brake();
+	}
+}
+
+void setHang(){ //delte later
     if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
         hangToggle = !hangToggle;
         Hang.set_value(hangToggle);
