@@ -17,15 +17,18 @@ MotorGroup Lift({});
 
 Motor liftLeft(-11);
 Motor liftRight(18);
+Motor intakeTop(4);
+Motor intakeBottom(5);
 
-MotorGroup Intake({14, -17}, pros::MotorGearset::blue);
+MotorGroup Intake({14, -17}, pros::MotorGearset::blue); //delete later
 
 Imu imu(1);
+Distance distance(3);
 
 Rotation latRot(7);
 Rotation angRot(8);
 
-adi::DigitalOut Hang(6, LOW);
+adi::DigitalOut Hang(6, LOW); //delete later
 adi::DigitalOut PTO(1, LOW);
 
 // drivetrain settings
