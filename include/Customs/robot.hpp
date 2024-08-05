@@ -5,6 +5,7 @@
 #include "lemlib/chassis/chassis.hpp"
 #include "lemlib/chassis/trackingWheel.hpp"
 #include "pros/distance.hpp"
+#include "pros/optical.hpp"
 
 using namespace pros;
 using namespace lemlib;
@@ -13,17 +14,13 @@ extern Controller controller;
 
 extern MotorGroup driveLeft;
 extern MotorGroup driveRight;
-extern MotorGroup Lift;
 
-extern Motor liftRight;
-extern Motor liftLeft;
-extern Motor intakeTop;
-extern Motor intakeBottom;
-
-extern MotorGroup Intake;
+extern Motor intake;
+extern Motor hooks;
 
 extern Imu imu;
 extern Distance distance;
+extern Optical color;
 
 extern adi::DigitalOut Hang;
 extern adi::DigitalOut PTO;
