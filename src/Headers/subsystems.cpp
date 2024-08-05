@@ -1,19 +1,22 @@
 #include "main.h"
 #include "pros/misc.h"
 
+<<<<<<< HEAD
 bool hangToggle = false;
 bool togglePTO = false;
 bool intakeEject = false;
 
+=======
+>>>>>>> 18e9ba57c8f17be95946b6affcb30688385194e8
 void setIntakes(){
 	if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
-		intakeTop.move_velocity(600);
-		intakeBottom.move_velocity(600);
+		intake.move_velocity(200);
 	}
-	else if(controller.get_digital(E_CONTROLLER_DIGITAL_L1) and distance.get_distance() < 10){
-		intakeBottom.move_velocity(600);
-		intakeTop.brake();
+	else if(controller.get_digital(E_CONTROLLER_DIGITAL_L1) and distance.get_distance() < 100){
+		intake.move_velocity(200);
+        hooks.move_velocity(-200);
 	}
+<<<<<<< HEAD
 }
 
 void liftPTO() {
@@ -45,3 +48,10 @@ void intakeControl() {
     
   }
 }
+=======
+    else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) and color.get_hue() > 0 and color.get_hue() < 15){
+        intake.move_velocity(200);
+        hooks.move_velocity(200);
+    }
+}
+>>>>>>> 18e9ba57c8f17be95946b6affcb30688385194e8
