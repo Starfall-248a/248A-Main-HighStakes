@@ -3,7 +3,6 @@
 #include "pros/adi.h"
 #include "pros/adi.hpp"
 #include "pros/misc.h"
-#include "pros/motors.h"
 #include "pros/motors.hpp"
 
 using namespace pros;
@@ -13,14 +12,12 @@ Controller controller(E_CONTROLLER_MASTER);
 
 MotorGroup driveLeft({-13, -12, -11}, pros::MotorGearset::blue); // left motors on ports 13, 12, 11
 MotorGroup driveRight({20, 19, 18}, pros::MotorGearset::blue); // right motors on ports 20, 19, 18
-MotorGroup Lift({});
 
-Motor liftLeft(-11);
-Motor liftRight(18);
+Motor liftLeft(-14);
+Motor liftRight(17);
+
 Motor intakeTop(4);
 Motor intakeBottom(5);
-
-MotorGroup Intake({14, -17}, pros::MotorGearset::blue); //delete later
 
 Imu imu(1);
 Distance distance(3);
@@ -28,15 +25,14 @@ Distance distance(3);
 Rotation latRot(7);
 Rotation angRot(8);
 
-adi::DigitalOut Hang(6, LOW); //delete later
 adi::DigitalOut PTO(1, LOW);
 
 // drivetrain settings
 Drivetrain drivetrain(&driveLeft, // left motor group
                               &driveRight, // right motor group
                               12.482, // 10 inch track width
-                              lemlib::Omniwheel::NEW_4, // using new 4" omnis
-                              343, // drivetrain rpm is 360
+                              lemlib::Omniwheel::NEW_275, // using new 2.75" omnis
+                              450, // drivetrain rpm is 360
                               2 // horizontal drift is 2 (for now)
 );
 

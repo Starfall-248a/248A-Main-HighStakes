@@ -3,18 +3,7 @@
 
 bool hangToggle = false;
 bool togglePTO = false;
-
-void setIntake(){ //delete later
-    if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
-		Intake.move_velocity(600);
-	}
-	else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
-		Intake.move_velocity(-600);
-	}
-	else {
-	    Intake.brake();
-	}
-}
+bool intakeEject = false;
 
 void setIntakes(){
 	if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
@@ -25,13 +14,6 @@ void setIntakes(){
 		intakeBottom.move_velocity(600);
 		intakeTop.brake();
 	}
-}
-
-void setHang(){ //delte later
-    if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
-        hangToggle = !hangToggle;
-        Hang.set_value(hangToggle);
-    }
 }
 
 void liftPTO() {
@@ -50,5 +32,16 @@ void liftPTO() {
         PTO.set_value(HIGH);
     }
     togglePTO = !togglePTO;
+  }
+}
+
+void intakeControl() {
+  if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
+    intakeBottom.move(127);
+  } else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && distance.get_distance() < 10){
+    intakeBottom.move(127);
+    intakeTop.move(127);
+  } else {
+    
   }
 }
