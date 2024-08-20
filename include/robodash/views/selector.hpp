@@ -81,6 +81,6 @@ class Selector {
 	void sd_load();
 
 	static void select_cb(lv_event_t *event);
-	};
+};
 
 } // namespace rd

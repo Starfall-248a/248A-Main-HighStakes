@@ -3,8 +3,6 @@
 #include "pros/adi.h"
 #include "pros/misc.h"
 
-bool clampState = true;
-
 void setIntakes(){
 	if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
 		intake.move_velocity(-200);
@@ -18,13 +16,9 @@ void setIntakes(){
 		intake.move_velocity(0);
 		hooks.move_velocity(0);
 	}
+    else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) and color.get_hue() > 0 and color.get_hue() < 15){
+        intake.move_velocity(200);
+        hooks.move_velocity(200);
+    }
 }
-
-void setClamp(){
-	if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
-		Clamp.set_value(HIGH);
-	} 
-	else if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
-		Clamp.set_value(LOW);
-	}
-}
+>>>>>>> 18e9ba57c8f17be95946b6affcb30688385194e8
