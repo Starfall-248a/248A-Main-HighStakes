@@ -22,8 +22,7 @@ extern Imu imu;
 extern Distance distance;
 extern Optical color;
 
-extern adi::DigitalOut Hang;
-extern adi::DigitalOut PTO;
+extern adi::DigitalOut Clamp;
 
 extern Rotation latRot;
 extern Rotation angRot;

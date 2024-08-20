@@ -1,4 +1,2 @@
-void setIntake();
-void setHang();
-void liftPTO();
+void setClamp();
 void setIntakes();

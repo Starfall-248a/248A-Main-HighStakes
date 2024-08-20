@@ -14,20 +14,17 @@ Controller controller(E_CONTROLLER_MASTER);
 MotorGroup driveLeft({-13, -12, -11}, pros::MotorGearset::blue); // left motors on ports 13, 12, 11
 MotorGroup driveRight({17, 19, 18}, pros::MotorGearset::blue); // right motors on ports 17, 19, 18
 
-Motor hooks(15, pros::MotorGearset::green);
-Motor intake(-11, pros::MotorGearset::green);
+Motor hooks(1, pros::MotorGearset::green);
+Motor intake(10, pros::MotorGearset::green);
 
-MotorGroup Intake({14, -17}, pros::MotorGearset::blue); //delete later
-
-Imu imu(1);
-Distance distance(3);
+Imu imu(16);
+Distance distance(15);
 Optical color(2);
 
 Rotation latRot(7);
 Rotation angRot(8);
 
-adi::DigitalOut Hang(6, LOW); //delete later
-adi::DigitalOut PTO(1, LOW);
+adi::DigitalOut Clamp(1, LOW);
 
 // drivetrain settings
 Drivetrain drivetrain(&driveLeft, // left motor group

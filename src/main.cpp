@@ -40,8 +40,8 @@ void opcontrol() {
         // prioritize steering slightly
         chassis.arcade(leftY, rightX, false, 0.75);
 
-		setIntake();
-		setHang();
+		setIntakes();
+		setClamp();
 
 		pros::delay(10);          // Run for 10 ms then update
 	}
