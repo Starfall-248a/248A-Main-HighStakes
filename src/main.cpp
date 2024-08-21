@@ -1,6 +1,5 @@
 #include "main.h"
 #include "robodash/api.h"
-#include "robodash/views/image.hpp"
 
 rd::Selector selector({
    {"Solo WP", &soloWP},
