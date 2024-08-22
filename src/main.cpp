@@ -2,8 +2,7 @@
 #include "robodash/api.h"
 
 rd::Selector selector({
-   {"Solo WP", &soloWP},
-   {"Half WP", &halfWP},
+   {"Four Ring", &fourRingDeterminer},
    {"Skills", &skills},
 });
 
@@ -15,7 +14,10 @@ void initialize() {
 }
 
 void disabled() {
-
+	while (true) {
+		pros::delay(10);
+		detectSide();
+	}
 }
 
 void competition_initialize() {
@@ -29,6 +31,7 @@ void autonomous() {
 
 void opcontrol() {
 	console.clear();
+	console.focus();
 	console.println("Driving...");
 	while (true) {
   

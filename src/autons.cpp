@@ -1,10 +1,10 @@
 #include "main.h"
 
-void soloWP(){
+void SoloWP(){
     chassis.moveToPoint(10, 10, 1000);
 }
 
-void halfWP(){
+void blueSoloWP(){
     chassis.moveToPoint(10, 10, 1000);
 }
 

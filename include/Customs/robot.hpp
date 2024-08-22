@@ -6,6 +6,7 @@
 #include "lemlib/chassis/trackingWheel.hpp"
 #include "pros/distance.hpp"
 #include "pros/optical.hpp"
+#include "pros/gps.hpp"
 
 using namespace pros;
 using namespace lemlib;
@@ -21,6 +22,7 @@ extern Motor hooks;
 extern Imu imu;
 extern Distance distance;
 extern Optical color;
+extern Gps gps;
 
 extern adi::DigitalOut Clamp;
 

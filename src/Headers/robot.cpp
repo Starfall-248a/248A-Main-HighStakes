@@ -21,7 +21,7 @@ Motor intake(10, pros::MotorGearset::green);
 Imu imu(16);
 Distance distance(15);
 Optical color(2);
-Gps Gps(5);
+Gps gps(5);
 
 Rotation latRot(7);
 Rotation angRot(8);

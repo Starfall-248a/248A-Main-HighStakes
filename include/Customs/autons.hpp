@@ -1,3 +1,3 @@
-void soloWP();
-void halfWP();
+void SoloWP();
+void blueSoloWP();
 void skills();

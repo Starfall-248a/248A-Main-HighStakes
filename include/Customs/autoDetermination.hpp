@@ -1,0 +1,2 @@
+void fourRingDeterminer();
+void detectSide();
