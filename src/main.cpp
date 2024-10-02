@@ -2,8 +2,8 @@
 #include "robodash/api.h"
 
 rd::Selector selector({
-   {"Four Ring", &fourRingDeterminer},
-   {"Skills", &skills},
+	{"Four Ring", &fourRingDeterminer},
+	{"Skills", &skills},
 });
 
 rd::Console console;

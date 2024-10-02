@@ -1,8 +1,10 @@
 #include "main.h"
 #include "pros/gps.hpp"
 
+bool blueSide = false;
+
 void detectSide(){
-    if (gps.get_position_x() < 0){
+    if (gps.get_position_x() > 0){
         blueSide = true;
     }
     else {
@@ -12,15 +14,18 @@ void detectSide(){
 
 void fourRingDeterminer(){
     if (!blueSide){
-        SoloWP();
+        fourRingRed();
+    }
+    else {
+        fourRingBlue();
+    }
+}
+
+void wpDeterminer(){
+    if (!blueSide){
+        redSoloWP();
     }
     else {
         blueSoloWP();
     }
 }
-
-
-//auton select
-//read side of field
-//change bool value based on side
-//run auton

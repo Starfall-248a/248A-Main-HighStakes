@@ -2,5 +2,4 @@
 #include "robot.hpp"
 #include "autons.hpp"
 #include "subsystems.hpp"
-#include "globalBool.hpp"
 #include "autoDetermination.hpp"

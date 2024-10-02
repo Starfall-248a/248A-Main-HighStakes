@@ -1,1 +1,0 @@
-bool blueSide = false;
