@@ -3,6 +3,7 @@
 
 rd::Selector selector({
 	{"Four Ring", &fourRingDeterminer},
+	{"Solo Winpoint", &wpDeterminer},
 	{"Skills", &skills},
 });
 
@@ -22,6 +23,7 @@ void disabled() {
 
 void competition_initialize() {
   selector.focus();
+  detectSide();
 }
 
 void autonomous() {

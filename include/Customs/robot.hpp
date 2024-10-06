@@ -19,6 +19,8 @@ extern MotorGroup driveRight;
 extern Motor intakeR;
 extern Motor intakeL;
 
+extern MotorGroup intake;
+
 extern Imu imu;
 extern Distance distance;
 extern Optical color;

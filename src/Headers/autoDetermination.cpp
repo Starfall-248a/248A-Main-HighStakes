@@ -4,8 +4,9 @@
 bool blueSide = false;
 
 void detectSide(){
-    if (gps.get_position_x() > 0){
+    if (gps.get_position_y() < 0){
         blueSide = true;
+        
     }
     else {
         blueSide = false;
