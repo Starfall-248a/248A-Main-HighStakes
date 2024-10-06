@@ -13,9 +13,10 @@ void blueSoloWP(){
     chassis.waitUntilDone();
     Clamp.set_value(HIGH);
     intake.move(127);
-    chassis.moveToPoint(23.542, 46.871, 1250);
-    intake.brake();
+    chassis.moveToPoint(23.542, 46.871, 1100);
+    chassis.waitUntilDone();
     chassis.moveToPose(12, 12, 180, 2000);
+    intake.brake();
 }
 
 void fourRingRed(){
