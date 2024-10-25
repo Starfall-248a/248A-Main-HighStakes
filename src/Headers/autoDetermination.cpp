@@ -1,8 +1,6 @@
 #include "main.h"
 #include "pros/gps.hpp"
 
-bool blueSide = false;
-
 void detectSide(){
     if (gps.get_position_y() < 0){
         blueSide = true;

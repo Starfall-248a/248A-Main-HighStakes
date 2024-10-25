@@ -17,9 +17,7 @@ extern MotorGroup driveLeft;
 extern MotorGroup driveRight;
 
 extern Motor intakeR;
-extern Motor intakeL;
-
-extern MotorGroup intake;
+extern Motor arm;
 
 extern Imu imu;
 extern Distance distance;
@@ -27,9 +25,11 @@ extern Optical color;
 extern Gps gps;
 
 extern adi::Pneumatics Clamp;
+extern adi::Pneumatics lady;
 
 extern Rotation latRot;
 extern Rotation angRot;
+extern Rotation armAngle;
 
 extern Drivetrain drivetrain;
 

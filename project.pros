@@ -47,6 +47,24 @@
                 "user_files": [],
                 "version": "0.5.4"
             },
+            "StormLib": {
+                "location": "C:\\Users\\student22\\AppData\\Roaming\\PROS\\templates\\StormLib@0.2.1",
+                "metadata": {
+                    "origin": "local"
+                },
+                "name": "StormLib",
+                "py/object": "pros.conductor.templates.local_template.LocalTemplate",
+                "supported_kernels": "^4.1.0",
+                "system_files": [
+                    "include\\stormlib\\api.hpp",
+                    "include\\stormlib\\led.hpp",
+                    "include\\stormlib\\selector.hpp",
+                    "firmware\\StormLib.a"
+                ],
+                "target": "v5",
+                "user_files": [],
+                "version": "0.2.1"
+            },
             "kernel": {
                 "location": "C:\\Users\\fusio\\AppData\\Roaming\\PROS\\templates\\kernel@4.1.0",
                 "metadata": {

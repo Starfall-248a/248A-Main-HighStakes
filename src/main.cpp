@@ -1,5 +1,7 @@
 #include "main.h"
 #include "robodash/api.h"
+#include "stormlib/api.hpp"
+#include "stormlib/led.hpp"
 
 rd::Selector selector({
 	{"Four Ring", &fourRingDeterminer},
@@ -9,15 +11,26 @@ rd::Selector selector({
 
 rd::Console console;
 
+stormlib::aRGB underglow(1, 144);
+stormlib::aRGB_manager ledManager(&underglow, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
+
 void initialize() {
 	console.println("Initializing robot...");
 	chassis.calibrate(); // calibrate sensors
+	ledManager.initialize(); // initialize the LED manager
 }
 
 void disabled() {
 	while (true) {
 		pros::delay(10);
 		detectSide();
+	}
+
+	if (blueSide) {
+		underglow.setColor(0x0000FF);
+	} else {
+		underglow.setColor(0xFF0000);
+	
 	}
 }
 
@@ -27,8 +40,10 @@ void competition_initialize() {
 }
 
 void autonomous() {
+	lady.set_value(HIGH);
 	console.println("Running auton...");
 	selector.run_auton();
+	
 }
 
 void opcontrol() {
@@ -47,6 +62,8 @@ void opcontrol() {
 
 		setIntakes();
 		setClamp();
+		updateArmState();
+    	correctArmAngle();
 
 		pros::delay(10);          // Run for 10 ms then update
 	}
