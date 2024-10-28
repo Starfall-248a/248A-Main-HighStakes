@@ -27,11 +27,13 @@ int getArmAngle() {
 // Function to update the arm state based on button presses
 void updateArmState() {
   if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
-    currentState = IDLE;
-  } else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {
-    currentState = MEDIUM;
-  } else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
-    currentState = SCORING;
+    if(currentState == IDLE) {
+      currentState = MEDIUM;
+    } else if(currentState == MEDIUM) {
+      currentState = SCORING;
+    } else if(currentState == SCORING) {
+      currentState = IDLE;
+    }
   }
 }
 
@@ -56,45 +58,3 @@ void correctArmAngle() {
   }
 }
  
-// void LiftPID(double targetAngle){
-//   double kP;
-//   double kI;
-//   double kD;
-//   lemlib::PID LiftController(
-//         kP = 0.15,
-//         kI = 0.0175,
-//         kD = 0.75,
-//         5,
-//         true
-//   );
-
-//   double error;
-//   double prevError = 0;
-//   double revError;
-//   double prevRevError = 0;
-//   double integral = 0;
-//   double revIntegral;
-//   double revDerivative;
-//   double currentAngle = armAngle.get_position();
-//   while (std::abs(error) > 1) { 
-//     error = currentAngle - targetAngle; 
-//     integral += error;
-
-//     if (std::abs(error) < 1) {
-//         integral = 0;
-//     }
-
-//     if (std::abs(error) > 1200) {
-//         integral = 0;
-//     }
-
-//     double derivative = error - prevError;
-//     prevError = error;
-
-//     double speed = (kP * error + kI * integral + kD * derivative) * 1.4;
-
-//     arm.move_absolute(targetAngle, speed);
-
-//     currentAngle = armAngle.get_position();
-//   }
-// }

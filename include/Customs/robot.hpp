@@ -16,16 +16,15 @@ extern Controller controller;
 extern MotorGroup driveLeft;
 extern MotorGroup driveRight;
 
-extern Motor intakeR;
+extern Motor intake;
 extern Motor arm;
 
 extern Imu imu;
-extern Distance distance;
-extern Optical color;
+extern Optical colorSort;
 extern Gps gps;
 
 extern adi::Pneumatics Clamp;
-extern adi::Pneumatics lady;
+extern adi::Pneumatics inLift;
 
 extern Rotation latRot;
 extern Rotation angRot;

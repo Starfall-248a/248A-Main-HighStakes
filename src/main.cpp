@@ -3,6 +3,7 @@
 #include "stormlib/api.hpp"
 #include "stormlib/led.hpp"
 
+
 rd::Selector selector({
 	{"Four Ring", &fourRingDeterminer},
 	{"Solo Winpoint", &wpDeterminer},
@@ -25,13 +26,6 @@ void disabled() {
 		pros::delay(10);
 		detectSide();
 	}
-
-	if (blueSide) {
-		underglow.setColor(0x0000FF);
-	} else {
-		underglow.setColor(0xFF0000);
-	
-	}
 }
 
 void competition_initialize() {
@@ -40,10 +34,14 @@ void competition_initialize() {
 }
 
 void autonomous() {
-	lady.set_value(HIGH);
 	console.println("Running auton...");
-	selector.run_auton();
+	if (blueSide) {
+		underglow.setColor(0x0000FF);
+	} else {
+		underglow.setColor(0xFF0000);
 	
+	}
+	selector.run_auton();
 }
 
 void opcontrol() {

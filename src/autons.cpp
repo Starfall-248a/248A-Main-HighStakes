@@ -11,7 +11,7 @@ void redSoloWP(){
     chassis.waitUntilDone();
     Clamp.set_value(HIGH);
     pros::delay(100);
-    intakeR.move(-127);
+    intake.move(-127);
     chassis.moveToPoint(-23.542, 46.871, 1500);
     pros::delay(500);
     // chassis.moveToPose(-12, 12, 180, 2150);
@@ -39,7 +39,7 @@ void blueSoloWP(){
     chassis.waitUntilDone();
     Clamp.set_value(HIGH);
     pros::delay(100);
-    intakeR.move(-127);
+    intake.move(-127);
     chassis.moveToPoint(23.542, 46.871, 1500);
     pros::delay(500);
     // chassis.moveToPose(12, 12, 180, 2150);
@@ -65,7 +65,7 @@ void fourRingRed(){
     chassis.setPose(-52,-37,245);
     chassis.moveToPoint(-29.267, -27.114, 1500, {.forwards = false});
     Clamp.toggle(); //clamped
-    intakeR.move_velocity(600);
+    intake.move_velocity(600);
 }
 
 void fourRingBlue(){
@@ -73,7 +73,7 @@ void fourRingBlue(){
     chassis.moveToPoint(-31, 27.5, 1500,{.forwards = false});
     chassis.waitUntilDone();
     Clamp.set_value(HIGH);
-    intakeR.move(127);
+    intake.move(127);
 
 }
 

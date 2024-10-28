@@ -16,12 +16,10 @@ MotorGroup driveLeft({20, 19, 8}, pros::MotorGearset::blue); // left motors on p
 MotorGroup driveRight({-12, -11, -1}, pros::MotorGearset::blue); // right motors on ports 12, 11, 1
 
 Motor arm(18, pros::MotorGearset::red); // arm motor on port 18
-Motor intakeR(13, pros::MotorGearset::blue); // right intake motor on port 13
-
-
+Motor intake(13, pros::MotorGearset::blue); // right intake motor on port 13
 
 Imu imu(3);
-Distance distance(15);
+Optical colorSort(5);
 
 Gps gps(16);
 
@@ -30,7 +28,7 @@ Rotation angRot(21);
 Rotation armAngle(6);
 
 adi::Pneumatics Clamp(8, LOW);
-adi::Pneumatics lady(3, LOW);
+adi::Pneumatics inLift(3, LOW);
 
 // drivetrain settings
 Drivetrain drivetrain(&driveLeft, // left motor group
@@ -38,11 +36,11 @@ Drivetrain drivetrain(&driveLeft, // left motor group
                               10.672500, // 10.6725 inch track width
                               lemlib::Omniwheel::NEW_275, // using new 2.75" omnis
                               450, // drivetrain rpm is 450
-                              2 // horizontal drift is 8
+                              2 // horizontal drift is 2
 );
 
 // horizontal tracking wheel
-TrackingWheel horizontal_tracking_wheel(&angRot, lemlib::Omniwheel::NEW_275, -.5);
+TrackingWheel horizontal_tracking_wheel(&angRot, lemlib::Omniwheel::NEW_275, .5);
 // vertical tracking wheel
 // TrackingWheel vertical_tracking_wheel(&latRot, lemlib::Omniwheel::NEW_275, -2.5);
 
