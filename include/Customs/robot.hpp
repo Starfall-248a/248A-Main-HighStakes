@@ -25,7 +25,7 @@ extern Optical color;
 extern Gps gps;
 
 extern adi::Pneumatics Clamp;
-extern adi::Pneumatics lady;
+extern adi::Pneumatics inLift;
 
 extern Rotation latRot;
 extern Rotation angRot;

@@ -40,7 +40,6 @@ void competition_initialize() {
 }
 
 void autonomous() {
-	lady.set_value(HIGH);
 	console.println("Running auton...");
 	selector.run_auton();
 	
@@ -49,7 +48,7 @@ void autonomous() {
 void opcontrol() {
 	console.clear();
 	console.focus();
-	console.println("Driving...");
+	console.println("Driving... bruh");
 	while (true) {
   
 		// get left y and right x positions
@@ -62,8 +61,7 @@ void opcontrol() {
 
 		setIntakes();
 		setClamp();
-		updateArmState();
-    	correctArmAngle();
+		setLady();
 
 		pros::delay(10);          // Run for 10 ms then update
 	}

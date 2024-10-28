@@ -34,12 +34,13 @@ void setClamp() {
 
 void setLady() {
   if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_R2)) {
-	// if (!ladyT) {
-	//   lady.set_value(true);
-	//   ladyT = !ladyT;
-	// } else {
-	//   lady.set_value(false);
-	//   ladyT = !ladyT;
-	// }
+	if (!ladyT) {
+	  inLift.set_value(true);
+	  ladyT = !ladyT;
+	} else {
+	  inLift.set_value(false);
+	  ladyT = !ladyT;
+	}
+	
   }
 }

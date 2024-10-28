@@ -13,52 +13,84 @@ void redSoloWP(){
     pros::delay(100);
     intakeR.move(-127);
     chassis.moveToPoint(-23.542, 46.871, 1500);
-    pros::delay(500);
-    // chassis.moveToPose(-12, 12, 180, 2150);
-    // chassis.waitUntilDone();
-    // intakeR.brake();
-    // Clamp.set_value(LOW);
-    // chassis.moveToPoint(-13, -16, 1750);
-    // chassis.turnToHeading(60, 1250);
-    // chassis.moveToPoint(-21.5, -24, 1750, {.forwards = false});
-    // chassis.waitUntilDone();
-    // pros::delay(100);
-    // Clamp.set_value(HIGH);
-    // intakeR.move(127);
-    // chassis.moveToPoint(-25, -47, 2500);
-    // chassis.moveToPoint(-24,-10, 2000);
-    // chassis.waitUntilDone();
-    // Clamp.set_value(LOW);
-    // intakeR.brake();
-    // chassis.moveToPoint(-24, -6, 2000, {.maxSpeed = 50});
-}
+    pros::delay(500);     
+//grab first goal
+//     chassis.setPose(-53.249,-35.788,270);
+//     chassis.moveToPoint(-18.042, -35.788, 2000, {.forwards = false});
+//     chassis.turnToHeading(310, 750);
+//     chassis.moveToPoint(-6, -47, 2000, {.forwards = false});
+//     chassis.waitUntilDone();
+//     pros::delay(250);
+//     Clamp.set_value(HIGH);
+//     pros::delay(250);
+//     //grab first ring and score preload
+//     chassis.turnToHeading(255, 750);
+//     intakeR.move(-127);
+//     chassis.moveToPoint(-23, -47.269, 1500);
+//     pros::delay(250);
+//     chassis.turnToHeading(180, 750);
+//     chassis.moveToPoint(-23, -57.218, 1000);
+//     chassis.waitUntilDone();
+//     pros::delay(500);
+//     intakeR.brake();
+//     chassis.turnToHeading(270, 750);
+//     chassis.waitUntilDone();
+//     Clamp.set_value(LOW);
+//     pros::delay(250);
+//     chassis.turnToHeading(180, 750);
+//     chassis.moveToPoint(-23, -21, 3000, {.forwards = false});
+//     chassis.waitUntilDone();
+//     Clamp.set_value(HIGH);
+//     pros::delay(250);
+//     chassis.turnToHeading(315, 1000);
+//     chassis.waitUntilDone();
+//     inLift.set_value(HIGH);
+//     chassis.moveToPoint(-47.126, 0, 2000);
+//     intakeR.move(-127);
+    }
 
-void blueSoloWP(){
-    chassis.setPose(51,40,56);
-    chassis.moveToPoint(30, 26.5, 2000,{.forwards = false, .maxSpeed = 80});
-    chassis.waitUntilDone();
-    Clamp.set_value(HIGH);
-    pros::delay(100);
-    intakeR.move(-127);
-    chassis.moveToPoint(23.542, 46.871, 1500);
-    pros::delay(500);
-    // chassis.moveToPose(12, 12, 180, 2150);
-    // chassis.waitUntilDone();
-    // intakeR.brake();
-    // Clamp.set_value(LOW);
-    // chassis.moveToPoint(13, -16, 1750);
-    // chassis.turnToHeading(300, 1250);
-    // chassis.moveToPoint(21.5, -24, 1750, {.forwards = false});
-    // chassis.waitUntilDone();
-    // pros::delay(100);
-    // Clamp.set_value(HIGH);
-    // intakeR.move(127);
-    // chassis.moveToPoint(25, -47, 2500);
-    // chassis.moveToPoint(24,-10, 2000);
-    // chassis.waitUntilDone();
-    // Clamp.set_value(LOW);
-    // intakeR.brake();
-    // chassis.moveToPoint(24, -6, 2000, {.maxSpeed = 50});
+    void blueSoloWP(){
+        chassis.setPose(51,40,56);
+        chassis.moveToPoint(30, 26.5, 2000,{.forwards = false, .maxSpeed = 80});
+        chassis.waitUntilDone();
+        Clamp.set_value(HIGH);
+        pros::delay(100);
+        intakeR.move(-127);
+        chassis.moveToPoint(23.542, 46.871, 1500);
+        pros::delay(500);  
+//     //grab first goal
+//     chassis.setPose(-53.249,-35.788,270);
+//     chassis.moveToPoint(-18.042, -35.788, 2000, {.forwards = false});
+//     chassis.turnToHeading(310, 750);
+//     chassis.moveToPoint(-6, -47, 2000, {.forwards = false});
+//     chassis.waitUntilDone();
+//     pros::delay(250);
+//     Clamp.set_value(HIGH);
+//     pros::delay(250);
+//     //grab first ring and score preload
+//     chassis.turnToHeading(255, 750);
+//     intakeR.move(-127);
+//     chassis.moveToPoint(-23, -47.269, 1500);
+//     pros::delay(250);
+//     chassis.turnToHeading(180, 750);
+//     chassis.moveToPoint(-23, -57.218, 1000);
+//     chassis.waitUntilDone();
+//     pros::delay(500);
+//     intakeR.brake();
+//     chassis.turnToHeading(270, 750);
+//     chassis.waitUntilDone();
+//     Clamp.set_value(LOW);
+//     pros::delay(250);
+//     chassis.turnToHeading(180, 750);
+//     chassis.moveToPoint(-23, -21, 3000, {.forwards = false});
+//     chassis.waitUntilDone();
+//     Clamp.set_value(HIGH);
+//     pros::delay(250);
+//     chassis.turnToHeading(315, 1000);
+//     chassis.waitUntilDone();
+//     inLift.set_value(HIGH);
+//     chassis.moveToPoint(-47.126, 0, 2000);
+//     intakeR.move(-127);
 }
 
 void fourRingRed(){

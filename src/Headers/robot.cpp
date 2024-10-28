@@ -30,7 +30,7 @@ Rotation angRot(21);
 Rotation armAngle(6);
 
 adi::Pneumatics Clamp(8, LOW);
-adi::Pneumatics lady(3, LOW);
+adi::Pneumatics inLift(3, LOW);
 
 // drivetrain settings
 Drivetrain drivetrain(&driveLeft, // left motor group
@@ -42,7 +42,7 @@ Drivetrain drivetrain(&driveLeft, // left motor group
 );
 
 // horizontal tracking wheel
-TrackingWheel horizontal_tracking_wheel(&angRot, lemlib::Omniwheel::NEW_275, -.5);
+TrackingWheel horizontal_tracking_wheel(&angRot, lemlib::Omniwheel::NEW_275, .5);
 // vertical tracking wheel
 // TrackingWheel vertical_tracking_wheel(&latRot, lemlib::Omniwheel::NEW_275, -2.5);
 
