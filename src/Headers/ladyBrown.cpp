@@ -2,7 +2,6 @@
 #include "pros/adi.hpp"
 #include "pros/motors.hpp"
 #include "pros/rtos.hpp"
-// #include "lemlib/pid.hpp"
 #include <cmath>
 
 // Initialize the current state

@@ -56,8 +56,9 @@ void opcontrol() {
 
         // move the robot
         // prioritize steering slightly
-        chassis.arcade(leftY, rightX, false, 0.75);
+        chassis.arcade(leftY, rightX, false, 0.70);
 
+		setLifter();
 		setIntakes();
 		setClamp();
 		updateArmState();
