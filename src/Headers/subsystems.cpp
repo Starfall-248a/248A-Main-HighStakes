@@ -16,9 +16,9 @@ void colorSorter(){
 
 void setIntakes() {
     if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-      intake.move_velocity(-600);
-    } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
       intake.move_velocity(600);
+    } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+      intake.move_velocity(-600);
     } else {
       intake.move_velocity(0);
     }

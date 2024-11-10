@@ -17,7 +17,8 @@ extern MotorGroup driveLeft;
 extern MotorGroup driveRight;
 
 extern Motor intake;
-extern Motor arm;
+extern Motor arm1;
+extern Motor arm2;
 
 extern Imu imu;
 extern Optical colorSort;

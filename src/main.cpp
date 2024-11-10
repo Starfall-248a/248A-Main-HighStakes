@@ -5,8 +5,8 @@
 
 
 rd::Selector selector({
-	{"Four Ring", &fourRingDeterminer},
 	{"Solo Winpoint", &wpDeterminer},
+	{"Four Ring", &fourRingDeterminer},
 	{"Skills", &skills},
 });
 
@@ -41,7 +41,7 @@ void autonomous() {
 		underglow.setColor(0xFF0000);
 	
 	}
-	selector.run_auton();
+	redSoloWP();
 }
 
 void opcontrol() {

@@ -12,20 +12,21 @@ using namespace lemlib;
 
 Controller controller(E_CONTROLLER_MASTER);
 
-MotorGroup driveLeft({20, 19, 8}, pros::MotorGearset::blue); // left motors on ports 20, 19, 8
-MotorGroup driveRight({-12, -11, -1}, pros::MotorGearset::blue); // right motors on ports 12, 11, 1
+MotorGroup driveLeft({2, 3, 1}, pros::MotorGearset::blue); // left motors on ports 20, 19, 8
+MotorGroup driveRight({-20, -7, -21}, pros::MotorGearset::blue); // right motors on ports 12, 11, 1
 
-Motor arm(18, pros::MotorGearset::red); // arm motor on port 18
-Motor intake(13, pros::MotorGearset::blue); // right intake motor on port 13
+Motor arm1(6, pros::MotorGearset::green); // arm motor on port 18
+Motor arm2(5, pros::MotorGearset::green); // arm motor on port 18
+Motor intake(9, pros::MotorGearset::blue); // right intake motor on port 13
 
-Imu imu(3);
+Imu imu(19);
 Optical colorSort(5);
 
-Gps gps(16);
+Gps gps(8);
 
-// Rotation latRot(7);
-Rotation angRot(21);
-Rotation armAngle(6);
+Rotation latRot(-18);
+Rotation angRot(-11);
+Rotation armAngle(4);
 
 adi::Pneumatics Clamp(8, LOW);
 adi::Pneumatics inLift(3, LOW);
@@ -40,11 +41,11 @@ Drivetrain drivetrain(&driveLeft, // left motor group
 );
 
 // horizontal tracking wheel
-TrackingWheel horizontal_tracking_wheel(&angRot, lemlib::Omniwheel::NEW_275, .5);
+TrackingWheel horizontal_tracking_wheel(&angRot, lemlib::Omniwheel::NEW_2, -2.5);
 // vertical tracking wheel
-// TrackingWheel vertical_tracking_wheel(&latRot, lemlib::Omniwheel::NEW_275, -2.5);
+TrackingWheel vertical_tracking_wheel(&latRot, lemlib::Omniwheel::NEW_2, 1);
 
-OdomSensors sensors(nullptr, // vertical tracking wheel 1, set to null
+OdomSensors sensors(&vertical_tracking_wheel, // vertical tracking wheel 1, set to null
                         nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs
                         &horizontal_tracking_wheel, // horizontal tracking wheel 1
                         nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
