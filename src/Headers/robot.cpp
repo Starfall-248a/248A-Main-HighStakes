@@ -6,6 +6,7 @@
 #include "pros/misc.h"
 #include "pros/motors.hpp"
 #include <sys/_intsup.h>
+#include "stormlib/api.hpp"
 
 using namespace pros;
 using namespace lemlib;
@@ -72,3 +73,7 @@ Chassis chassis(drivetrain,
                         &throttle_curve, 
                         &steer_curve
 );
+
+stormlib::aRGB underglow(1, 144);
+stormlib::aRGB Time(2, 144);
+stormlib::aRGB_manager ledManager(&underglow, &Time, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);

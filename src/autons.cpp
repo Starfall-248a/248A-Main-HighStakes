@@ -16,11 +16,7 @@ void redSoloWP(){
     chassis.turnToPoint(-23.655, -47.014, 1250);
     chassis.moveToPoint(-22.267, -50.5, 2000, {}, false);
     pros::delay(1250);
-    // Clamp.set_value(LOW);
-    // //grab 2nd goal
-    // chassis.turnToHeading(270, 1250);
-    // chassis.moveToPoint(-8, -47.014, 1250, {.forwards = false}, false);
-    chassis.turnToPoint(47, -47 , 1250);
+    
     
 }
 

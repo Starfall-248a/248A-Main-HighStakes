@@ -47,3 +47,22 @@ void setLifter() {
     }
   }
 }
+
+void ledTime(){
+  pros::delay(87000);
+  Time.setColor(0xFF0000);
+  pros::delay(50);
+  Time.off();
+  pros::delay(50);
+  Time.setColor(0xFF0000);
+  pros::delay(50);
+  Time.off();
+  pros::delay(50);
+  Time.setColor(0xFF0000);
+  pros::delay(50);
+  Time.off();
+  pros::delay(50);
+  Time.setColor(0xFF0000);
+  pros::delay(50);
+  Time.rainbow(5);
+}

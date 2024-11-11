@@ -1,19 +1,13 @@
 #include "main.h"
 #include "robodash/api.h"
-#include "stormlib/api.hpp"
-#include "stormlib/led.hpp"
-
 
 rd::Selector selector({
-	{"Solo Winpoint", &wpDeterminer},
-	{"Four Ring", &fourRingDeterminer},
+	{"Red Solo Winpoint", &redSoloWP},
+	{"Blue Solo Winpoint", &blueSoloWP},
 	{"Skills", &skills},
 });
 
 rd::Console console;
-
-stormlib::aRGB underglow(1, 144);
-stormlib::aRGB_manager ledManager(&underglow, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
 
 void initialize() {
 	console.println("Initializing robot...");
@@ -48,6 +42,7 @@ void opcontrol() {
 	console.clear();
 	console.focus();
 	console.println("Driving...");
+	Time.rainbow(5);
 	while (true) {
   
 		// get left y and right x positions
