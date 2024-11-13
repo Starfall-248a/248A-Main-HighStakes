@@ -74,6 +74,3 @@ Chassis chassis(drivetrain,
                         &steer_curve
 );
 
-stormlib::aRGB underglow(1, 144);
-stormlib::aRGB Time(2, 144);
-stormlib::aRGB_manager ledManager(&underglow, &Time, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);

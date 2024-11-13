@@ -4,10 +4,18 @@
 rd::Selector selector({
 	{"Red Solo Winpoint", &redSoloWP},
 	{"Blue Solo Winpoint", &blueSoloWP},
+	{"Red five ring", &fourRingRed},
+	{"Blue five ring", &fourRingBlue},
+	{"Red disrupt", &disruptRed},
+	{"Blue disrupt", &disruptBlue},
 	{"Skills", &skills},
 });
 
 rd::Console console;
+
+stormlib::aRGB underglow(1, 144);
+stormlib::aRGB TimeLED(2, 144);
+stormlib::aRGB_manager ledManager(&underglow, &TimeLED, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
 
 void initialize() {
 	console.println("Initializing robot...");
@@ -16,6 +24,8 @@ void initialize() {
 }
 
 void disabled() {
+	underglow.rainbow(5);
+	TimeLED.rainbow(5);
 	while (true) {
 		pros::delay(10);
 		detectSide();
@@ -42,7 +52,8 @@ void opcontrol() {
 	console.clear();
 	console.focus();
 	console.println("Driving...");
-	Time.rainbow(5);
+	
+	underglow.setColor(0x0000FF);
 	while (true) {
   
 		// get left y and right x positions
