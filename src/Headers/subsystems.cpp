@@ -48,21 +48,9 @@ void setLifter() {
   }
 }
 
-// void ledTime(){
-//   pros::delay(87000);
-//   TimeLED.setColor(0xFF0000);
-//   pros::delay(50);
-//   TimeLED.off();
-//   pros::delay(50);
-//   TimeLED.setColor(0xFF0000);
-//   pros::delay(50);
-//   TimeLED.off();
-//   pros::delay(50);
-//   TimeLED.setColor(0xFF0000);
-//   pros::delay(50);
-//   TimeLED.off();
-//   pros::delay(50);
-//   TimeLED.setColor(0xFF0000);
-//   pros::delay(50);
-//   TimeLED.rainbow(5);
-// }
+void ledTime(){
+  pros::delay(87000);
+  TimeLED.flash(0xFF0000, 2);
+  pros::delay(1000);
+  TimeLED.rainbow(1);
+}
