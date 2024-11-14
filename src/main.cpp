@@ -48,9 +48,11 @@ void opcontrol() {
 	console.focus();
 	console.println("Driving...");
 	
-	underglow.rainbow(1/2);
-	TimeLED.rainbow(1/2);
+	ledManager.setColor(0xFF0000);
+	underglow.rainbow(1);
+	TimeLED.rainbow(1);
 	while (true) {
+  		
 		// get left y and right x positions
         int leftY = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
         int rightX = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
