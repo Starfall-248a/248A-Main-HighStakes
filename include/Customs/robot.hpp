@@ -39,6 +39,6 @@ extern TrackingWheel vertical_tracking_wheel;
 
 extern Chassis chassis;
 
-// extern aRGB underglow;
-// extern aRGB TimeLED;
-// extern aRGB_manager ledManager;
+extern aRGB underglow;
+extern aRGB TimeLED;
+extern aRGB_manager ledManager;

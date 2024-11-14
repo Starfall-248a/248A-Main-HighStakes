@@ -13,10 +13,6 @@ rd::Selector selector({
 
 rd::Console console;
 
-stormlib::aRGB underglow(1, 63);
-stormlib::aRGB TimeLED(2, 63);
-stormlib::aRGB_manager ledManager(&underglow, &TimeLED, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
-
 void initialize() {
 	console.println("Initializing robot...");
 	chassis.calibrate(); // calibrate sensors
@@ -45,7 +41,7 @@ void autonomous() {
 		underglow.setColor(0xFF0000);
 	
 	}
-	redSoloWP();
+	selector.run_auton();
 }
 
 void opcontrol() {
@@ -71,6 +67,7 @@ void opcontrol() {
 		setClamp();
 		updateArmState();
     	correctArmAngle();
+		ledTime();
 
 		pros::delay(10);          // Run for 10 ms then update
 	}
