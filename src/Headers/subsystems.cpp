@@ -17,14 +17,10 @@ void colorSorter(){
 void setIntakes() {
     if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
       intake.move_velocity(600);
-      TimeLED.flow(0xBF40BF, 0x301934);
-      underglow.flow(0xBF40BF, 0x301934);
     } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
       intake.move_velocity(-600);
     } else {
       intake.move_velocity(0);
-      underglow.rainbow(1);
-	    TimeLED.rainbow(1);
     }
   }
 

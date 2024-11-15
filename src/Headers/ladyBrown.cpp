@@ -28,8 +28,10 @@ void updateArmState() {
   if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
     if(currentState == IDLE) {
       currentState = MEDIUM;
+      
     } else if(currentState == MEDIUM) {
       currentState = SCORING;
+      
     } else if(currentState == SCORING) {
       currentState = IDLE;
     }
