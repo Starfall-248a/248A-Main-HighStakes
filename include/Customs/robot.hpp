@@ -42,3 +42,5 @@ extern Chassis chassis;
 extern aRGB underglow;
 extern aRGB TimeLED;
 extern aRGB_manager ledManager;
+
+extern stormlib::clock driverClock;

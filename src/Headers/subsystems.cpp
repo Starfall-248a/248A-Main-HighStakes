@@ -48,9 +48,32 @@ void setLifter() {
   }
 }
 
-void ledTime(){
-  pros::delay(86000);
-  TimeLED.flash(0xFF0000, 2);
-  pros::delay(2000);
-  TimeLED.rainbow(1);
+void ledTime() {
+  driverClock.start();
+  driverClock.waitUntil(30 * 1000);
+  TimeLED.flow(0x4B0082, 0xD9AEFF);
+  driverClock.waitUntil(29 * 1000);
+  TimeLED.off();
+  driverClock.waitUntil(38 * 1000);
+  TimeLED.flow(0x4B0082, 0xD9AEFF);
+  driverClock.waitUntil(27 * 1000);
+  TimeLED.off();
+  driverClock.waitUntil(26 * 1000);
+  TimeLED.flow(0x4B0082, 0xD9AEFF);
+  driverClock.waitUntil(25 * 1000);
+  TimeLED.off();
+  driverClock.waitUntil(24 * 1000);
+  TimeLED.flow(0x4B0082, 0xD9AEFF);
+  driverClock.waitUntil(23 * 1000);
+  TimeLED.off();
+  driverClock.waitUntil(22 * 1000);
+  TimeLED.flow(0x4B0082, 0xD9AEFF);
+  driverClock.waitUntil(21 * 1000);
+  TimeLED.off();
+  driverClock.waitUntil(20 * 1000);
+  TimeLED.flow(0x4B0082, 0xD9AEFF);
+  driverClock.waitUntil(19 * 1000);
+  TimeLED.off();
+  driverClock.waitUntil(18 * 1000);
+  TimeLED.setColor(0xE5195E);
 }

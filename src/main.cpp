@@ -6,6 +6,8 @@ rd::Selector selector({
 	{"Blue Solo Winpoint", &blueSoloWP},
 	{"Red five ring", &fourRingRed},
 	{"Blue five ring", &fourRingBlue},
+	{"Red rush", &rushRed},
+	{"Blue rush", &rushBlue},
 	{"Red disrupt", &disruptRed},
 	{"Blue disrupt", &disruptBlue},
 	{"Skills", &skills},
@@ -17,6 +19,7 @@ void initialize() {
 	console.println("Initializing robot...");
 	chassis.calibrate(); // calibrate sensors
 	ledManager.initialize(); // initialize the LED manager
+	ledManager.flow(0x4B0082, 0xD9AEFF);
 }
 
 void disabled() {
@@ -40,9 +43,9 @@ void opcontrol() {
 	console.clear();
 	console.focus();
 	console.println("Driving...");
-	ledManager.setColor(0xFF0000);
 	underglow.rainbow(1);
 	TimeLED.rainbow(1);
+	pros::Task Time(ledTime, "LED time");
 	while (true) {
 
 		// get left y and right x positions
@@ -51,7 +54,7 @@ void opcontrol() {
 
         // move the robot
         // prioritize steering slightly
-        chassis.arcade(leftY, rightX, false, 0.70);
+        chassis.arcade(leftY, rightX, false, 0.60);
 
 		setLifter();
 		setIntakes();
@@ -59,7 +62,6 @@ void opcontrol() {
 		updateArmState();
     	correctArmAngle();
 		
-
 		pros::delay(10);          // Run for 10 ms then update
 	}
 }

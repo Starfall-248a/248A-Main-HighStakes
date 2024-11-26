@@ -11,6 +11,8 @@
 using namespace pros;
 using namespace lemlib;
 
+stormlib::clock driverClock;
+
 Controller controller(E_CONTROLLER_MASTER);
 
 MotorGroup driveLeft({2, 3, 1}, pros::MotorGearset::blue); // left motors on ports 20, 19, 8
@@ -26,7 +28,7 @@ Optical colorSort(5);
 Gps gps(8);
 
 Rotation latRot(-18);
-Rotation angRot(-11);
+Rotation angRot(-13);
 Rotation armAngle(4);
 
 adi::Pneumatics Clamp(8, LOW);
