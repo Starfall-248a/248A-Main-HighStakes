@@ -7,10 +7,25 @@
 int wallMech = 0;
 static bool toggle{false};
 static bool inLifter{false};
+bool toggleSorter{true};
 
 void colorSorter(){
   while (colorSort.get_hue() >= 0 && colorSort.get_hue() <= 30 && blueSide || colorSort.get_hue() >= 300 && colorSort.get_hue() <= 360 && !blueSide) {
     intake.move_velocity(600);
+  }
+}
+
+Task colorSorting(colorSorter, "Color sorting");
+
+void toggleSort(){
+  if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_A)) {
+    if (toggleSorter) {
+      colorSorting.suspend();
+      toggleSorter = !toggleSorter;
+    } else {
+      colorSorting.resume();
+      toggleSorter = !toggleSorter;
+    }
   }
 }
 

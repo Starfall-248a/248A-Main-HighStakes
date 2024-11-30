@@ -46,6 +46,7 @@ void opcontrol() {
 	underglow.rainbow(1);
 	TimeLED.rainbow(1);
 	pros::Task Time(ledTime, "LED time");
+
 	while (true) {
 
 		// get left y and right x positions
@@ -54,7 +55,7 @@ void opcontrol() {
 
         // move the robot
         // prioritize steering slightly
-        chassis.arcade(leftY, rightX, false, 0.60);
+        chassis.arcade(leftY, rightX, false, 0.45);
 
 		setLifter();
 		setIntakes();
