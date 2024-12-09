@@ -19,11 +19,12 @@ MotorGroup driveLeft({2, 3, 1}, pros::MotorGearset::blue); // left motors on por
 MotorGroup driveRight({-20, -7, -21}, pros::MotorGearset::blue); // right motors on ports 12, 11, 1
 
 Motor arm1(6, pros::MotorGearset::green); // arm motor on port 18
-Motor arm2(5, pros::MotorGearset::green); // arm motor on port 18
-Motor intake(9, pros::MotorGearset::blue); // right intake motor on port 13
+Motor arm2(-5, pros::MotorGearset::green); // arm motor on port 18
+Motor hooks(9, pros::MotorGearset::blue); // right intake motor on port 13
+Motor preroller(-4, pros::MotorGearset::blue); // right intake motor on port 13
+MotorGroup intake({9, -4}, pros::MotorGearset::blue); // intake motors on ports 9, 10
 
 Imu imu(19);
-Optical colorSort(5);
 
 Gps gps(8);
 

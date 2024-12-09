@@ -20,19 +20,20 @@ void redSoloWP(){
     chassis.turnToPoint(-48, 4, 1250, {}, false);
     Clamp.set_value(LOW);
     chassis.moveToPoint(-48, 4, 2250);
+    hooks.brake();
     chassis.waitUntil(10);
+    preroller.move_velocity(200);
     inLift.set_value(HIGH);
     chassis.waitUntilDone();
     inLift.set_value(LOW);
     pros::delay(500);
     //sort out blue ring
-    intake.brake();
     chassis.turnToPoint(-25.187, 21.741, 1000, {.forwards = false}, false);
     chassis.moveToPoint(-25.187, 21.741, 1500, {.forwards = false, .maxSpeed = 65}, false);
     chassis.waitUntil(5);
     Clamp.set_value(HIGH);
     pros::delay(100);
-    intake.move(127);
+    hooks.move(127);
     chassis.turnToPoint(-19, 5.5, 1000);
     chassis.moveToPoint(-19, 5.5, 1500, {.maxSpeed = 50});
     chassis.waitUntil(5);
@@ -40,6 +41,7 @@ void redSoloWP(){
 }
 
 void blueSoloWP(){
+    blueSide = true;
     //grab first goal
     chassis.setPose(48.912,-36.043,115);
     chassis.moveToPoint(29.665, -26.604, 2000, { .forwards = false, .maxSpeed = 75}, false);
@@ -54,19 +56,20 @@ void blueSoloWP(){
     chassis.turnToPoint(48, 4, 1250, {}, false);
     Clamp.set_value(LOW);
     chassis.moveToPoint(48, 4, 2250);
+    hooks.brake();
     chassis.waitUntil(10);
+    preroller.move_velocity(200);
     inLift.set_value(HIGH);
     chassis.waitUntilDone();
     inLift.set_value(LOW);
     //sort out blue ring
     chassis.turnToPoint(25.187, 21.741, 1000, {.forwards = false});
     chassis.waitUntil(15);
-    intake.brake();
     chassis.moveToPoint(25.187, 21.741, 1500, {.forwards = false, .maxSpeed = 65}, false);
     chassis.waitUntil(5);
     Clamp.set_value(HIGH);
     pros::delay(100);
-    intake.move(127);
+    hooks.move(127);
     chassis.turnToPoint(19, 5.5, 1000);
     chassis.moveToPoint(19, 5.5, 1500, {.maxSpeed = 50});
     chassis.waitUntil(5);
@@ -98,6 +101,7 @@ void fourRingRed(){
 }
 
 void fourRingBlue(){
+    blueSide = true;
     //grab first goal
     chassis.setPose(48.912,-36.043,115);
     chassis.moveToPoint(29.665, -26.604, 2000, { .forwards = false, .maxSpeed = 75}, false);
@@ -135,6 +139,7 @@ void disruptRed(){
 }
 
 void disruptBlue(){
+    blueSide = true;
     chassis.setPose(51,40,270);
     chassis.moveToPoint(10, 36, 1750);
     chassis.turnToPoint(18.706, 25.943, 500, {.forwards = false});
@@ -154,6 +159,7 @@ void rushRed(){
 }
 
 void rushBlue(){
+    blueSide = true;
     chassis.setPose(51, -60,90);
     chassis.moveToPoint(15, -60, 1100, {.forwards = false});
     chassis.turnToPoint(8.61, -55, 650, {.forwards = false});
@@ -166,11 +172,14 @@ void rushBlue(){
 
 void skills(){
     chassis.setPose(-60.647, 0, 90);
-    intake.move(127);
+    hooks.move(127);
     pros::delay(750);
+    preroller.move(127);
     chassis.moveToPoint(-47, 0, 1250);
     chassis.turnToPoint(-47, -50, 1250, {.forwards = false});
-    chassis.moveToPoint(-47, 16, 2000, {.forwards = false, .maxSpeed = 90});
+    chassis.moveToPoint(-47, 16, 2000, {.forwards = false, .maxSpeed = 90},false);
+    Clamp.set_value(HIGH);
+    pros::delay(100);
     chassis.turnToPoint(-24, 24, 1250);
     chassis.moveToPoint(-24, 24, 2000);
     chassis.turnToPoint(-59.372, 59.116, 1250);

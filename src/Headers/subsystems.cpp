@@ -9,33 +9,36 @@ static bool toggle{false};
 static bool inLifter{false};
 bool toggleSorter{true};
 
-void colorSorter(){
-  while (colorSort.get_hue() >= 0 && colorSort.get_hue() <= 30 && blueSide || colorSort.get_hue() >= 300 && colorSort.get_hue() <= 360 && !blueSide) {
-    intake.move_velocity(600);
-  }
-}
+// void colorSorter(){
+//   while (colorSort.get_hue() >= 0 && colorSort.get_hue() <= 30 && blueSide || colorSort.get_hue() >= 300 && colorSort.get_hue() <= 360 && !blueSide) {
+//     hooks.move_velocity(600);
+//   }
+// }
 
-Task colorSorting(colorSorter, "Color sorting");
+// Task colorSorting(colorSorter, "Color sorting");
 
-void toggleSort(){
-  if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_A)) {
-    if (toggleSorter) {
-      colorSorting.suspend();
-      toggleSorter = !toggleSorter;
-    } else {
-      colorSorting.resume();
-      toggleSorter = !toggleSorter;
-    }
-  }
-}
+// void toggleSort(){
+//   if (controller.get_digital_new_press(E_CONTROLLER_DIGITAL_A)) {
+//     if (toggleSorter) {
+//       colorSorting.suspend();
+//       toggleSorter = !toggleSorter;
+//     } else {
+//       colorSorting.resume();
+//       toggleSorter = !toggleSorter;
+//     }
+//   }
+// }
 
 void setIntakes() {
     if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-      intake.move_velocity(600);
+      hooks.move_velocity(600);
+      preroller.move_velocity(200);
     } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-      intake.move_velocity(-600);
+      hooks.move_velocity(-600);
+      preroller.move_velocity(-200);
     } else {
-      intake.move_velocity(0);
+      hooks.move_velocity(0);
+      preroller.move_velocity(0);
     }
   }
 

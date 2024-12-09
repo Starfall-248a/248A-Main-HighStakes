@@ -17,7 +17,9 @@ extern Controller controller;
 extern MotorGroup driveLeft;
 extern MotorGroup driveRight;
 
-extern Motor intake;
+extern Motor hooks;
+extern Motor preroller;
+extern MotorGroup intake;
 extern Motor arm1;
 extern Motor arm2;
 
