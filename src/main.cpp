@@ -2,6 +2,7 @@
 #include "robodash/api.h"
 #include "robodash/views/image.hpp"
 #include "Planet.c"
+#include "goof.c"
 
 rd::Selector selector({
 	{"Red Solo Winpoint", &redSoloWP},
@@ -17,16 +18,8 @@ rd::Selector selector({
 
 rd::Console console;
 
-lv_img_dsc_t planet_img_dsc = {
-  .header.always_zero = 0,
-  .header.w = Planet.header.w,
-  .header.h = Planet.header.h,
-  .data_size = Planet.data_size,
-  .header.cf = Planet.header.cf,
-  .data = Planet.data,
-};
-
-rd::Image planet(planet_img_dsc, "Planet");
+rd::Image planet(Planet, "Planet");
+rd::Image Goof(goof, "goof");
 
 void initialize() {
 	console.println("Initializing robot...");
@@ -58,18 +51,16 @@ void opcontrol() {
 	console.println("Driving...");
 	underglow.rainbow(1);
 	TimeLED.rainbow(1);
-	pros::Task Time(ledTime, "LED time");
-
+	pros::Task Flasher(ledTime, "LED time");
 	while (true) {
-
 		// get left y and right x positions
         int leftY = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
         int rightX = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
 
         // move the robot
-        // prioritize steering slightly
-        chassis.arcade(leftY, rightX, false, 0.45);
-
+        chassis.arcade(leftY, rightX, false, 0.5);
+		
+		// set subsystems
 		setLifter();
 		setIntakes();
 		setClamp();
