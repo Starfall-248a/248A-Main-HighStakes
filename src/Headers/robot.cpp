@@ -6,11 +6,14 @@
 #include "pros/motors.hpp"
 #include <sys/_intsup.h>
 #include "stormlib/api.hpp"
+#include "robodash/api.h"
 
 using namespace pros;
 using namespace lemlib;
 
 stormlib::clock driverClock;
+
+rd::Console console;
 
 Controller controller(E_CONTROLLER_MASTER);
 
@@ -18,9 +21,9 @@ MotorGroup driveLeft({20, -19, 18}, pros::MotorGearset::blue); // left motors on
 MotorGroup driveRight({-17, 16, 15}, pros::MotorGearset::blue); // right motors on ports 17, 16, 15
 
 Motor LB(6, pros::MotorGearset::green); // arm motor on port 6
-Motor hooks(9, pros::MotorGearset::blue); // right intake motor on port 13
-Motor preroller(-4, pros::MotorGearset::blue); // right intake motor on port 13
-MotorGroup intake({9, -4}, pros::MotorGearset::blue); // intake motors on ports 9, 10
+Motor hooks(10, pros::MotorGearset::blue); // right intake motor on port 10
+Motor preroller(-4, pros::MotorGearset::green); // right intake motor on port 4
+MotorGroup intake({9, -4}, pros::MotorGearset::blue); // intake motors on ports 9, 4
 
 Imu imu(19);
 

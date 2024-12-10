@@ -1,22 +1,22 @@
 #include "main.h"
 #include "robodash/api.h"
-#include "robodash/views/image.hpp"
 #include "Planet.c"
 #include "goof.c"
 
-rd::Selector selector({
+rd::Selector Match_autos({
 	{"Red Solo Winpoint", &redSoloWP},
 	{"Blue Solo Winpoint", &blueSoloWP},
 	{"Red five ring", &fourRingRed},
 	{"Blue five ring", &fourRingBlue},
+	{"Skills", &skills},
+});
+
+rd::Selector Elim_autos({
 	{"Red rush", &rushRed},
 	{"Blue rush", &rushBlue},
 	{"Red disrupt", &disruptRed},
 	{"Blue disrupt", &disruptBlue},
-	{"Skills", &skills},
 });
-
-rd::Console console;
 
 rd::Image planet(Planet, "Planet");
 rd::Image Goof(goof, "goof");
@@ -26,6 +26,7 @@ void initialize() {
 	chassis.calibrate(); // calibrate sensors
 	ledManager.initialize(); // initialize the LED manager
 	ledManager.flow(0x4B0082, 0xD9AEFF);
+	pros::Task odom(odomTask, "Odom task");
 }
 
 void disabled() {
@@ -36,13 +37,14 @@ void disabled() {
 }
 
 void competition_initialize() {
-  selector.focus();
+  Goof.focus();
   detectSide();
 }
 
 void autonomous() {
 	console.println("Running auton...");
-	selector.run_auton();
+	Match_autos.run_auton();
+	Elim_autos.run_auton();
 }
 
 void opcontrol() {

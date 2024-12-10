@@ -7,6 +7,7 @@
 #include "pros/optical.hpp"
 #include "pros/gps.hpp"
 #include "stormlib/api.hpp"
+#include "robodash/api.h"
 
 using namespace pros;
 using namespace lemlib;
@@ -44,3 +45,5 @@ extern aRGB TimeLED;
 extern aRGB_manager ledManager;
 
 extern stormlib::clock driverClock;
+
+extern rd::Console console;
