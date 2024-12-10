@@ -1,5 +1,4 @@
 #include "main.h"
-#include "pros/adi.h"
 #include "pros/adi.hpp"
 #include "pros/misc.h"
 #include "pros/misc.hpp"

@@ -2,7 +2,6 @@
 #include "pros/abstract_motor.hpp"
 #include "pros/adi.h"
 #include "pros/adi.hpp"
-#include "pros/gps.hpp"
 #include "pros/misc.h"
 #include "pros/motors.hpp"
 #include <sys/_intsup.h>
@@ -15,18 +14,15 @@ stormlib::clock driverClock;
 
 Controller controller(E_CONTROLLER_MASTER);
 
-MotorGroup driveLeft({2, 3, 1}, pros::MotorGearset::blue); // left motors on ports 20, 19, 8
-MotorGroup driveRight({-20, -7, -21}, pros::MotorGearset::blue); // right motors on ports 12, 11, 1
+MotorGroup driveLeft({20, -19, 18}, pros::MotorGearset::blue); // left motors on ports 20, 19, 18
+MotorGroup driveRight({-17, 16, 15}, pros::MotorGearset::blue); // right motors on ports 17, 16, 15
 
-Motor arm1(6, pros::MotorGearset::green); // arm motor on port 18
-Motor arm2(-5, pros::MotorGearset::green); // arm motor on port 18
+Motor LB(6, pros::MotorGearset::green); // arm motor on port 6
 Motor hooks(9, pros::MotorGearset::blue); // right intake motor on port 13
 Motor preroller(-4, pros::MotorGearset::blue); // right intake motor on port 13
 MotorGroup intake({9, -4}, pros::MotorGearset::blue); // intake motors on ports 9, 10
 
 Imu imu(19);
-
-Gps gps(8);
 
 Rotation latRot(-18);
 Rotation angRot(-13);
@@ -38,9 +34,9 @@ adi::Pneumatics inLift(3, LOW);
 // drivetrain settings
 Drivetrain drivetrain(&driveLeft, // left motor group
                               &driveRight, // right motor group
-                              10.672500, // 10.6725 inch track width
+                              11.822028, // 10.6725 inch track width
                               lemlib::Omniwheel::NEW_275, // using new 2.75" omnis
-                              450, // drivetrain rpm is 450
+                              600, // drivetrain rpm is 450
                               2 // horizontal drift is 2
 );
 

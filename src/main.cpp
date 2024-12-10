@@ -1,5 +1,7 @@
 #include "main.h"
 #include "robodash/api.h"
+#include "robodash/views/image.hpp"
+#include "Planet.c"
 
 rd::Selector selector({
 	{"Red Solo Winpoint", &redSoloWP},
@@ -14,6 +16,17 @@ rd::Selector selector({
 });
 
 rd::Console console;
+
+lv_img_dsc_t planet_img_dsc = {
+  .header.always_zero = 0,
+  .header.w = Planet.header.w,
+  .header.h = Planet.header.h,
+  .data_size = Planet.data_size,
+  .header.cf = Planet.header.cf,
+  .data = Planet.data,
+};
+
+rd::Image planet(planet_img_dsc, "Planet");
 
 void initialize() {
 	console.println("Initializing robot...");
@@ -41,7 +54,7 @@ void autonomous() {
 
 void opcontrol() {
 	console.clear();
-	console.focus();
+	planet.focus();
 	console.println("Driving...");
 	underglow.rainbow(1);
 	TimeLED.rainbow(1);

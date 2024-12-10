@@ -1,7 +1,5 @@
 #include "main.h"
-#include "pros/adi.hpp"
 #include "pros/motors.hpp"
-#include "pros/rtos.hpp"
 #include <cmath>
 
 // Initialize the current state
@@ -14,8 +12,7 @@ const int HIGH_ANGLE = 400;
 
 // Function to set the arm angle
 void setArmAngle(int angle) {
-  arm1.move_absolute(angle*4, 200); // Adjust the speed as necessary
-  arm2.move_absolute(-angle*4, 200); // Adjust the speed as necessary
+  LB.move_absolute(angle*4, 200); // Adjust the speed as necessary
 }
 
 // Function to get the current arm angle

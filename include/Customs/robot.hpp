@@ -20,12 +20,10 @@ extern MotorGroup driveRight;
 extern Motor hooks;
 extern Motor preroller;
 extern MotorGroup intake;
-extern Motor arm1;
-extern Motor arm2;
+extern Motor LB;
 
 extern Imu imu;
 extern Optical colorSort;
-extern Gps gps;
 
 extern adi::Pneumatics Clamp;
 extern adi::Pneumatics inLift;
