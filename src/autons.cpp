@@ -4,6 +4,8 @@
 #include "pros/rtos.hpp"
 
 //Assets
+ASSET(SkillsP1_txt)
+ASSET(SkillsP2_txt)
 
 void redSoloWP(){
     //grab first goal
@@ -171,7 +173,7 @@ void rushBlue(){
 }
 
 void skills(){
-    chassis.setPose(-60.647, 0, 90);
+    chassis.setPose(-60.5, 0, 90);
     hooks.move(127);
     pros::delay(750);
     preroller.move(127);
@@ -180,10 +182,49 @@ void skills(){
     chassis.moveToPoint(-47, 16, 2000, {.forwards = false, .maxSpeed = 90},false);
     Clamp.set_value(HIGH);
     pros::delay(100);
-    chassis.turnToPoint(-24, 24, 1250);
-    chassis.moveToPoint(-24, 24, 2000);
-    chassis.turnToPoint(-59.372, 59.116, 1250);
-    chassis.moveToPoint(-47.126, 47.126, 2500);
-    chassis.turnToPoint(-59.372, 59.116, 1250, {.forwards = false});
-    chassis.moveToPoint(-59.372, 59.116, 1250, {.forwards = false});
+    chassis.follow(SkillsP1_txt, 5, 20000);
+    chassis.turnToPoint(-55.828, 61.431, 750, {.forwards = false}, false);
+    Clamp.set_value(LOW);
+    chassis.moveToPoint(-55.828, 61.431, 750, {.forwards = false, .maxSpeed = 90}, false);
+    chassis.moveToPose(-47, -15, 0, 5000);
+    chassis.follow(SkillsP2_txt, 5, 20000);
+    chassis.turnToPoint(-55.828, -61.431, 750, {.forwards = false}, false);
+    Clamp.set_value(LOW);
+    chassis.moveToPoint(-55.828, -61.431, 750, {.forwards = false, .maxSpeed = 90}, false);
+    hooks.brake();
+    chassis.moveToPoint(0, -59, 2000, {.earlyExitRange = 5});
+    chassis.moveToPose(47.133, -6.042, 180, 3000, {.lead = .55}, false);
+    Clamp.set_value(HIGH);
+}
+
+void find_tracking_center(float turnVoltage, uint32_t time) {
+  chassis.setPose(0, 0, 0);
+  unsigned long n = 0;
+  float heading;
+
+  std::cout << std::fixed << "\033[1mCopy this:\033[0m\n\\left[";
+  driveRight.move(127);
+  driveLeft.move(127);
+
+  std::ostringstream out;
+
+  auto end_time = time + pros::millis();
+
+  int i = 0;
+  
+  while (pros::millis() < end_time && i++ < 10000) {
+    std::cout << "\\left(" << chassis.getPose().x << "," << chassis.getPose().y << "\\right),";
+    /*if (i % 250 == 0) {
+      std::cout << "\\right]\n\\left[" ;
+    } */
+    if (i % 50 == 0) {
+      std::cout.flush();
+    }
+    pros::delay(20);
+  }  
+  driveRight.brake();
+  driveLeft.brake();
+  std::cout << "\b\\right]" << std::endl;
+
+  std::cout << "Go to https://www.desmos.com/calculator/rxdoxxil1j to solve for offsets." << std::endl;
 }

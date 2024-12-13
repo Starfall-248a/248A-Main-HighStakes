@@ -1,53 +1,46 @@
 #include "main.h"
 #include "robodash/api.h"
-#include "Planet.c"
-#include "goof.c"
 
 rd::Selector Match_autos({
 	{"Red Solo Winpoint", &redSoloWP},
 	{"Blue Solo Winpoint", &blueSoloWP},
 	{"Red five ring", &fourRingRed},
 	{"Blue five ring", &fourRingBlue},
-	{"Skills", &skills},
-});
-
-rd::Selector Elim_autos({
 	{"Red rush", &rushRed},
 	{"Blue rush", &rushBlue},
 	{"Red disrupt", &disruptRed},
 	{"Blue disrupt", &disruptBlue},
+	{"Skills", &skills},
 });
 
-rd::Image planet(Planet, "Planet");
-rd::Image Goof(goof, "goof");
+rd::Image planet("Planet.bin", "Planet");
+rd::Image goof("goof.bin", "goof");
 
 void initialize() {
+	Match_autos.focus();
 	console.println("Initializing robot...");
 	chassis.calibrate(); // calibrate sensors
 	ledManager.initialize(); // initialize the LED manager
 	ledManager.flow(0x4B0082, 0xD9AEFF);
-	pros::Task odom(odomTask, "Odom task");
 }
 
 void disabled() {
-	while (true) {
-		pros::delay(10);
-		detectSide();
-	}
+	
 }
 
 void competition_initialize() {
-  Goof.focus();
-  detectSide();
+  
 }
 
 void autonomous() {
 	console.println("Running auton...");
+	goof.focus();
 	Match_autos.run_auton();
-	Elim_autos.run_auton();
+	
 }
 
 void opcontrol() {
+	// pros::Task odom(odomTask, "Odom task");
 	console.clear();
 	planet.focus();
 	console.println("Driving...");

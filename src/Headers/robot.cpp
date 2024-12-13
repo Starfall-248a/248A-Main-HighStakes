@@ -18,21 +18,21 @@ rd::Console console;
 Controller controller(E_CONTROLLER_MASTER);
 
 MotorGroup driveLeft({20, -19, 18}, pros::MotorGearset::blue); // left motors on ports 20, 19, 18
-MotorGroup driveRight({-17, 16, 15}, pros::MotorGearset::blue); // right motors on ports 17, 16, 15
+MotorGroup driveRight({-17, 16, -15}, pros::MotorGearset::blue); // right motors on ports 17, 16, 15
 
 Motor LB(6, pros::MotorGearset::green); // arm motor on port 6
 Motor hooks(10, pros::MotorGearset::blue); // right intake motor on port 10
-Motor preroller(-4, pros::MotorGearset::green); // right intake motor on port 4
+Motor preroller(-13, pros::MotorGearset::green); // right intake motor on port 4
 MotorGroup intake({9, -4}, pros::MotorGearset::blue); // intake motors on ports 9, 4
 
-Imu imu(19);
+Imu imu(11);
 
 Rotation latRot(-18);
 Rotation angRot(-13);
 Rotation armAngle(4);
 
-adi::Pneumatics Clamp(8, LOW);
-adi::Pneumatics inLift(3, LOW);
+adi::Pneumatics Clamp(1, LOW);
+adi::Pneumatics inLift(2, LOW);
 
 // drivetrain settings
 Drivetrain drivetrain(&driveLeft, // left motor group
@@ -44,7 +44,7 @@ Drivetrain drivetrain(&driveLeft, // left motor group
 );
 
 // horizontal tracking wheel
-TrackingWheel horizontal_tracking_wheel(&angRot, lemlib::Omniwheel::NEW_2, -2.5);
+TrackingWheel horizontal_tracking_wheel(&angRot, lemlib::Omniwheel::NEW_2, 2.25);
 // vertical tracking wheel
 TrackingWheel vertical_tracking_wheel(&latRot, lemlib::Omniwheel::NEW_2, 1);
 
@@ -76,6 +76,6 @@ Chassis chassis(drivetrain,
                         &steer_curve
 );
 
-stormlib::aRGB underglow(1, 63);
-stormlib::aRGB TimeLED(2, 63);
+stormlib::aRGB underglow(4, 30);
+stormlib::aRGB TimeLED(3, 63);
 stormlib::aRGB_manager ledManager(&underglow, &TimeLED, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
