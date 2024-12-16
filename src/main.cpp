@@ -21,7 +21,7 @@ void initialize() {
 	console.println("Initializing robot...");
 	chassis.calibrate(); // calibrate sensors
 	ledManager.initialize(); // initialize the LED manager
-	ledManager.flow(0x4B0082, 0xD9AEFF);
+	ledManager.flow(0xFF0000, 0x00FF00);
 }
 
 void disabled() {
@@ -44,8 +44,8 @@ void opcontrol() {
 	console.clear();
 	planet.focus();
 	console.println("Driving...");
-	underglow.rainbow(1);
-	TimeLED.rainbow(1);
+	underglow.flow(0xFF0000, 0x00FF00);
+	TimeLED.flow(0xFF0000, 0x00FF00);
 	pros::Task Flasher(ledTime, "LED time");
 	while (true) {
 		// get left y and right x positions

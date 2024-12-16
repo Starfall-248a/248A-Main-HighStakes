@@ -21,13 +21,13 @@ MotorGroup driveLeft({20, -19, 18}, pros::MotorGearset::blue); // left motors on
 MotorGroup driveRight({-17, 16, -15}, pros::MotorGearset::blue); // right motors on ports 17, 16, 15
 
 Motor LB(6, pros::MotorGearset::green); // arm motor on port 6
-Motor hooks(10, pros::MotorGearset::blue); // right intake motor on port 10
+Motor hooks(7, pros::MotorGearset::blue); // right intake motor on port 10
 Motor preroller(-13, pros::MotorGearset::green); // right intake motor on port 4
-MotorGroup intake({9, -4}, pros::MotorGearset::blue); // intake motors on ports 9, 4
+MotorGroup intake({7, -13}, pros::MotorGearset::blue); // intake motors on ports 9, 4
 
 Imu imu(11);
 
-Rotation latRot(-18);
+Rotation latRot(-8);
 Rotation angRot(-13);
 Rotation armAngle(4);
 
@@ -44,7 +44,7 @@ Drivetrain drivetrain(&driveLeft, // left motor group
 );
 
 // horizontal tracking wheel
-TrackingWheel horizontal_tracking_wheel(&angRot, lemlib::Omniwheel::NEW_2, 2.25);
+TrackingWheel horizontal_tracking_wheel(&angRot, lemlib::Omniwheel::NEW_2, 2);
 // vertical tracking wheel
 TrackingWheel vertical_tracking_wheel(&latRot, lemlib::Omniwheel::NEW_2, 1);
 
