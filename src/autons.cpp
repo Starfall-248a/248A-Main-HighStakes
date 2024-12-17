@@ -159,7 +159,7 @@ void disruptBlue(){
     inLift.set_value(LOW);
     pros::delay(200);
     chassis.moveToPoint(19.341, 41.123, 1000);
-    chassis.swingToHeading(180, lemlib::DriveSide::LEFT, 1250, {.direction = AngularDirection::CCW_COUNTERCLOCKWISE, .maxSpeed = 60});
+    chassis.swingToHeading(180, lemlib::DriveSide::RIGHT, 1250, {.direction = AngularDirection::CW_CLOCKWISE, .maxSpeed = 60});
     chassis.turnToPoint(48.191, 19.983, 1500);
     chassis.moveToPoint(48.191, 19.983, 1500);
 }
