@@ -21,7 +21,7 @@ void initialize() {
 	console.println("Initializing robot...");
 	chassis.calibrate(); // calibrate sensors
 	ledManager.initialize(); // initialize the LED manager
-	ledManager.flow(0xFF0000, 0x00FF00);
+	ledManager.flow(0x421C52, 0x732C7B);
 }
 
 void disabled() {
