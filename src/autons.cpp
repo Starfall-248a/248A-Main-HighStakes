@@ -7,6 +7,22 @@
 ASSET(SkillsP1_txt)
 ASSET(SkillsP2_txt)
 
+void moveRelative(float distance, float maxSpeed, int timeout) {
+    double headingRadians = chassis.getPose(true).theta;
+    double startingX = chassis.getPose().x;
+    double startingY = chassis.getPose().y;
+    double deltaX = distance * sin(headingRadians);
+    double deltaY = distance * cos(headingRadians);
+    double newX = startingX + deltaX;
+    double newY = startingY + deltaY;
+    if (distance > 0) {
+        chassis.moveToPoint(newX, newY, timeout, {.forwards=true, .maxSpeed=maxSpeed});
+    }
+    else if (distance < 0) {
+        chassis.moveToPoint(newX, newY, timeout, {.forwards=false, .maxSpeed=maxSpeed});
+    }
+};
+
 void redSoloWP(){
     //grab first goal
     chassis.setPose(-48.912,-36.043,245);
