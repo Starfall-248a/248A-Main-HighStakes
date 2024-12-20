@@ -7,12 +7,12 @@ ArmState currentState = IDLE;
 
 // Define the angles for each state
 const int LOW_ANGLE = 0;
-const int MEDIUM_ANGLE = 50;
-const int HIGH_ANGLE = 400;
+const int MEDIUM_ANGLE = 75;
+const int HIGH_ANGLE = 100;
 
 // Function to set the arm angle
 void setArmAngle(int angle) {
-  LB.move_absolute(angle*4, 200); // Adjust the speed as necessary
+  LB.move_absolute(angle*6, 200); // Adjust the speed as necessary
 }
 
 // Function to get the current arm angle

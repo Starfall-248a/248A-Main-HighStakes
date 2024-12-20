@@ -8,38 +8,13 @@ ASSET(SkillsP1_txt)
 ASSET(SkillsP2_txt)
 
 void redSoloWP(){
-    //grab first goal
-    chassis.setPose(-48.912,-36.043,245);
-    chassis.moveToPoint(-29.665, -26.604, 2000, { .forwards = false, .maxSpeed = 75}, false);
+    chassis.setPose(-60, -13.25, 323);
+    setArmAngle(400);
+    pros::delay(1250);
+    chassis.moveToPoint(-43.687, -36.394, 1750);
+    chassis.turnToPoint(-23.5, -23.5, 750);
+    chassis.moveToPoint(-23.5, -23.5, 1500, {.forwards = false, .maxSpeed = 60}, false);
     Clamp.set_value(HIGH);
-    intake.move(127);
-    pros::delay(100);
-    //grab 1st ring
-    chassis.turnToPoint(-21, -49, 1500);
-    chassis.moveToPoint(-21, -49, 2000, {}, false);
-    pros::delay(1750);
-    //go to alliance stake 2 stack
-    chassis.turnToPoint(-48, 4, 1250, {}, false);
-    Clamp.set_value(LOW);
-    chassis.moveToPoint(-48, 4, 2250);
-    hooks.brake();
-    chassis.waitUntil(10);
-    preroller.move_velocity(200);
-    inLift.set_value(HIGH);
-    chassis.waitUntilDone();
-    inLift.set_value(LOW);
-    pros::delay(500);
-    //sort out blue ring
-    chassis.turnToPoint(-25.187, 21.741, 1000, {.forwards = false}, false);
-    chassis.moveToPoint(-25.187, 21.741, 1500, {.forwards = false, .maxSpeed = 65}, false);
-    chassis.waitUntil(5);
-    Clamp.set_value(HIGH);
-    pros::delay(100);
-    hooks.move(127);
-    chassis.turnToPoint(-19, 5.5, 1000);
-    chassis.moveToPoint(-19, 5.5, 1500, {.maxSpeed = 50});
-    chassis.waitUntil(5);
-    intake.brake();
 }
 
 void blueSoloWP(){
