@@ -198,35 +198,3 @@ void skills(){
     chassis.moveToPose(47.133, -6.042, 180, 3000, {.lead = .55}, false);
     Clamp.set_value(HIGH);
 }
-
-void find_tracking_center(float turnVoltage, uint32_t time) {
-  chassis.setPose(0, 0, 0);
-  unsigned long n = 0;
-  float heading;
-
-  std::cout << std::fixed << "\033[1mCopy this:\033[0m\n\\left[";
-  driveRight.move(127);
-  driveLeft.move(127);
-
-  std::ostringstream out;
-
-  auto end_time = time + pros::millis();
-
-  int i = 0;
-  
-  while (pros::millis() < end_time && i++ < 10000) {
-    std::cout << "\\left(" << chassis.getPose().x << "," << chassis.getPose().y << "\\right),";
-    /*if (i % 250 == 0) {
-      std::cout << "\\right]\n\\left[" ;
-    } */
-    if (i % 50 == 0) {
-      std::cout.flush();
-    }
-    pros::delay(20);
-  }  
-  driveRight.brake();
-  driveLeft.brake();
-  std::cout << "\b\\right]" << std::endl;
-
-  std::cout << "Go to https://www.desmos.com/calculator/rxdoxxil1j to solve for offsets." << std::endl;
-}
