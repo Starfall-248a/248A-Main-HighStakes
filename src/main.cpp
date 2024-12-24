@@ -22,6 +22,7 @@ void initialize() {
 	chassis.calibrate(); // calibrate sensors
 	ledManager.initialize(); // initialize the LED manager
 	ledManager.flow(0x421C52, 0x732C7B);
+	pros::Task liftControlTask(LBTask, "LB Task");
 }
 
 void disabled() {

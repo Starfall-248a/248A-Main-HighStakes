@@ -2,57 +2,22 @@
 #include "pros/motors.hpp"
 #include <cmath>
 
-// Initialize the current state
-ArmState currentState = IDLE;
+const int numStates = 3;
+int states[numStates] = {0, 50, 450};
+int currState = 0;
+int target = 0;
 
-// Define the angles for each state
-const int LOW_ANGLE = 0;
-const int MEDIUM_ANGLE = 75;
-const int HIGH_ANGLE = 100;
-
-// Function to set the arm angle
-void setArmAngle(int angle) {
-  LB.move_absolute(angle*6, 200); // Adjust the speed as necessary
-}
-
-// Function to get the current arm angle
-int getArmAngle() {
-  return armAngle.get_position(); // Assuming the motor has an encoder
-}
-
-// Function to update the arm state based on button presses
-void updateArmState() {
-  if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
-    if(currentState == IDLE) {
-      currentState = MEDIUM;
-      
-    } else if(currentState == MEDIUM) {
-      currentState = SCORING;
-      
-    } else if(currentState == SCORING) {
-      currentState = IDLE;
+void nextState() {
+    currState += 1;
+    if (currState == numStates) {
+        currState = 0;
     }
-  }
+    target = states[currState];
 }
 
-// Function to correct the arm angle if it deviates from the target
-void correctArmAngle() {
-  int targetAngle;
-  switch (currentState) {
-    case IDLE:
-      targetAngle = LOW_ANGLE;
-      break;
-    case MEDIUM:
-      targetAngle = MEDIUM_ANGLE;
-      break;
-    case SCORING:
-      targetAngle = HIGH_ANGLE;
-      break;
-  }
-
-  int currentAngle = getArmAngle();
-  if (currentAngle != targetAngle) {
-    setArmAngle(targetAngle);
-  }
+void liftControl() {
+    double kp = 1.4;
+    double error = target - LB.get_position();
+    double velocity = kp * error;
+    LB.move(velocity);
 }
- 

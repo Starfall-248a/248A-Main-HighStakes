@@ -6,3 +6,10 @@ void odomTask() {
     console.printf("The robot's y position is %f\n", chassis.getPose().y);
     pros::delay(50);
 }
+
+void LBTask() {
+    while (true) {
+        liftControl();
+        pros::delay(10);
+    }
+}

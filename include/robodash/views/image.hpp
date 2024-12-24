@@ -7,6 +7,7 @@
 #pragma once
 #include "robodash/api.h"
 #include <string>
+#include <stdlib.h>
 
 namespace rd {
 
